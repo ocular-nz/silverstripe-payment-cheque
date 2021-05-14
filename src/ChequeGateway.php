@@ -1,5 +1,10 @@
 <?php
 
+namespace PaymentCheque;
+
+use Payment\PaymentGateway_MerchantHosted;
+use Payment\PaymentGateway_Success;
+
 class ChequeGateway extends PaymentGateway_MerchantHosted {
 
   protected $supportedCurrencies = array(
