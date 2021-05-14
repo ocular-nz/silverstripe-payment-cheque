@@ -7,10 +7,11 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\NumericField;
 
-class ChequeProcessor extends PaymentProcessor_MerchantHosted {
+class ChequeProcessor extends PaymentProcessor_MerchantHosted
+{
 
-  public function getFormFields() {
-
+  public function getFormFields()
+  {
     $fieldList = new FieldList();
 
     $fieldList->push(new NumericField('Amount', 'Amount', ''));

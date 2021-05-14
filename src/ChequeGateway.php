@@ -5,7 +5,8 @@ namespace PaymentCheque;
 use Payment\PaymentGateway_MerchantHosted;
 use Payment\PaymentGateway_Success;
 
-class ChequeGateway extends PaymentGateway_MerchantHosted {
+class ChequeGateway extends PaymentGateway_MerchantHosted
+{
 
   protected $supportedCurrencies = array(
     'USD' => 'United States Dollar',
@@ -13,26 +14,28 @@ class ChequeGateway extends PaymentGateway_MerchantHosted {
     'NZD' => 'New Zealand Dollar'
   );
 
-  public function validate($data) {
+  public function validate($data)
+  {
 
     $validationResult = $this->getValidationResult();
 
-    if (! isset($data['Amount'])) {
+    if (!isset($data['Amount'])) {
       $validationResult->error('Payment amount not set');
-    }
-    else if (empty($data['Amount'])) {
+    } else if (empty($data['Amount'])) {
       $validationResult->error('Payment amount cannot be null');
     }
 
     $this->validationResult = $validationResult;
     return $validationResult;
   }
-  
-  public function process($data) {
+
+  public function process($data)
+  {
     return new PaymentGateway_Success();
   }
 
-  public function getSupportedCurrencies() {
+  public function getSupportedCurrencies()
+  {
 
     $config = $this->getConfig();
     if (isset($config['supported_currencies'])) {
@@ -41,5 +44,3 @@ class ChequeGateway extends PaymentGateway_MerchantHosted {
     return $this->supportedCurrencies;
   }
 }
-
-
