@@ -1,12 +1,12 @@
-name: Cheque
+Name: Cheque
 ---
 
-PaymentFactory:
+Payment\PaymentFactory:
   Cheque:
     title: 'Cheque Payment'
     gateway_classes:
-      live: 'ChequeGateway'
-      dev: 'ChequeGateway'
-      test: 'ChequeGateway'
-    processor: 'ChequeProcessor'
-    model: 'Payment'
+      live: 'PaymentCheque\ChequeGateway'
+      dev: 'PaymentCheque\ChequeGateway'
+      test: 'PaymentCheque\ChequeGateway'
+    processor: 'PaymentCheque\ChequeProcessor'
+    model: 'Payment\Payment'

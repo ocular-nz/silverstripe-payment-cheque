@@ -20,9 +20,9 @@ class ChequeGateway extends PaymentGateway_MerchantHosted
     $validationResult = $this->getValidationResult();
 
     if (!isset($data['Amount'])) {
-      $validationResult->error('Payment amount not set');
+      $validationResult->addError('Payment amount not set');
     } else if (empty($data['Amount'])) {
-      $validationResult->error('Payment amount cannot be null');
+      $validationResult->addError('Payment amount cannot be null');
     }
 
     $this->validationResult = $validationResult;
