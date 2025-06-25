@@ -4,6 +4,7 @@ namespace PaymentCheque;
 
 use Payment\PaymentGateway_MerchantHosted;
 use Payment\PaymentGateway_Success;
+use SilverStripe\Core\Validation\ValidationResult;
 
 class ChequeGateway extends PaymentGateway_MerchantHosted
 {
@@ -14,7 +15,7 @@ class ChequeGateway extends PaymentGateway_MerchantHosted
     'NZD' => 'New Zealand Dollar'
   );
 
-  public function validate($data)
+  public function validate($data): ValidationResult
   {
 
     $validationResult = $this->getValidationResult();
